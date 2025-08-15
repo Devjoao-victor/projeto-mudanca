@@ -1,0 +1,197 @@
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+    color: rgba(255, 255, 255, 0.815);
+    overflow: hidden; /* evita rolagem lateral e vertical extra */
+    position: relative; /* cria referência pro container das partículas */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+
+a {
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
+}
+
+#links {
+    
+    z-index: -1; /* fica atrás de tudo */
+}
+
+.set {
+    border-radius: 3px;
+    padding: 8px;
+}
+
+#set1 {
+    border: 1.3px solid white;
+    padding: 8px;
+    border-radius: 3px;
+}
+
+#set1:hover {
+    background-color: rgba(115, 115, 115, 0.813);
+    transition: 0.4s;
+    color: black;
+    border-radius: 3px;
+}
+
+.set:hover {
+    background-color: rgba(115, 115, 115, 0.813);
+    transition: 0.4s;
+    color: black;
+    border-radius: 3px;
+}
+
+main {
+    z-index: 1; /* main acima das partículas */
+    height: 87vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#start {
+    border-radius: 3px;
+    cursor: pointer;
+    border-style: none;
+    background-color: rgba(210, 210, 210, 0.463);
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    z-index: 1;
+    width: 150px;
+}
+
+#start:hover {
+    background-color: rgba(188, 188, 188, 0.742);
+    transition: 0.6s;
+}
+
+#form {
+    height: 170px;
+    width: 320px;
+    display: none;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.215);
+    backdrop-filter: blur(10px);
+    color: rgba(255, 255, 255, 0.815);
+    border-radius: 5px;
+    will-change: transform, opacity;
+}
+
+
+#bclose {
+    width: 30px;
+    background-color: rgba(255, 255, 255, 0.215);
+    align-self: right;
+    height: 30px;
+    border-radius: 0px 1px 10px 0px;
+    backdrop-filter: blur(10px);
+}
+
+#form > h1 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.formp {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 0.7em;
+    text-align: center;
+}
+
+#bclose:hover {
+    background-color: rgba(244, 244, 244, 0.742);
+    transition: 0.6s;
+    
+}
+
+#form > input#cor {
+    width: 100px;
+    margin: auto;
+}
+
+
+#particles-container {
+    position: absolute;
+    inset: 0;                     
+    pointer-events: none;         
+    z-index: 0;                   
+    overflow: hidden;             
+  }
+
+.particle {
+    pointer-events: none;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: inset 0 0 2px #121212, 0 0 5px white, 0 0 10px white;
+    animation: animate linear forwards;
+  }
+  
+
+@keyframes animate {
+    0% {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(var(--move-x), var(--move-y)) scale(0.5);
+    }
+  }
+
+  /* animação de entrada */
+@keyframes popIn {
+    from { opacity: 0; transform: translateY(10px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  
+  /* animação de saída */
+  @keyframes popOut {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to   { opacity: 0; transform: translateY(10px) scale(0.98); }
+  }
+
+  @keyframes popOut {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to   { opacity: 0; transform: translateY(10px) scale(0.98); }
+  }
+  
+  /* classes que disparam as animações */
+  #form.animate-in {
+    display: flex;            /* aparece */
+    flex-direction: column;
+    animation: popIn 0.45s ease forwards;
+  }
+  
+  #form.animate-out {
+    display: flex;            /* ainda visível enquanto anima para sumir */
+    flex-direction: column;
+    animation: popOut 0.35s ease forwards;
+  }

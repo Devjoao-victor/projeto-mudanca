@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Your Vibe</h1>
+        </div>
+        <div id="links">
+            <a href="#" class="set">Home</a>
+            <a href="#" class="set">About</a>
+            <a href="#" class="set">Services</a>
+            <a href="#" class="set">Contact</a>
+            <a href="#" id="set1" onclick="start()">Set Your Color</a>
+        </div>
+    </header>
+    <main id="mains">
+        <div id="particles-container" aria-hidden="true"></div>
+        <input type="button" value="Start" id="start" onclick="start()">
+        <div id="form">
+            <input type="button" value="X" onclick="shut()" id="bclose">
+            <h1>Color</h1>
+            <p class="formp">Choose your palette according to your taste</p>
+            <input type="color" name="cor" id="cor">
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
